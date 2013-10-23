@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'trollop'
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'railscast/cli'
+
+
+opts = Trollop::options do
+  opt :authentication_250, "Authentication from Scratch (revised)", long: "250"
+  opt :other_1, "Example", long: "1"
+end
+
+#p opts
+
+app = Railscast::Cli.new(opts)
+#app.run
+
+#puts "Subcommand: #{opts.inspect}"
+#puts "Remaining arguments: #{ARGV.inspect}"

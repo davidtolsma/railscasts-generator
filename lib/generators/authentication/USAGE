@@ -1,0 +1,8 @@
+Description:
+    This will create a user model with authentication
+
+Example:
+    rails generate authentication
+
+    Manual steps to complete:
+        in the controller add: before_filter :authorize, only: [:edit, :update]
