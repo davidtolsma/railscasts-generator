@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'railscast/generator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "railscasts-generator"
+  spec.name          = "railscasts_generator"
   spec.version       = Railscast::Generator::VERSION
   spec.authors       = ["David Tolsma"]
   spec.email         = ["david.tolsma@gmail.com"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
   
-spec.executables   = ['railscasts_generator']
+  spec.executables   = ['railscasts_generator']
   spec.default_executable = 'railscasts_generator'
 
   spec.files         = `git ls-files`.split($/)
