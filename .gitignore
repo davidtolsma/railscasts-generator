@@ -8,6 +8,9 @@ InstalledFiles
 _yardoc
 coverage
 doc/
+=======
+coverage
+InstalledFiles
 lib/bundler/man
 pkg
 rdoc
@@ -16,3 +19,9 @@ test/tmp
 test/version_tmp
 tmp
 .DS_Store
+=======
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
