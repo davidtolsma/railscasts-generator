@@ -12,9 +12,6 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Railscasts.com generator of content based on the episodes}
   spec.homepage      = ""
   spec.license       = "MIT"
-  
-  spec.executables   = ['railscasts_generator']
-  spec.default_executable = 'railscasts_generator'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
