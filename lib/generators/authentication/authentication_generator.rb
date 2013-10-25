@@ -12,10 +12,23 @@ class AuthenticationGenerator < Rails::Generators::Base
     #generate "migration create_users email:string password_digest:string created_at:datetime updated_at:datetime"
 
     remove_file "app/controllers/users_controller.rb"
-    copy_file "users_controller.rb", "app/controllers/users_controller.rb"
+
+    if Rails::VERSION::STRING.to_i >= 4
+      copy_file "users_controller_v4.rb", "app/controllers/users_controller.rb"
+    else
+      copy_file "users_controller_v3.rb", "app/controllers/users_controller.rb"
+    end
 
     remove_file "app/models/user.rb"
     copy_file "user.rb", "app/models/user.rb"
+    
+    if Rails::VERSION::STRING.to_i < 4
+
+inject_into_file 'app/models/user.rb', after: "has_secure_password\n" do <<-'RUBY'
+  attr_accessible :email, :password, :password_confirmation
+RUBY
+end
+    end
 
     rake "db:migrate"
     
@@ -30,7 +43,7 @@ class AuthenticationGenerator < Rails::Generators::Base
     copy_file "sessions/new.html.erb", "app/views/sessions/new.html.erb"
 
 
-inject_into_file 'app/controllers/application_controller.rb', after: "protect_from_forgery with: :exception\n" do <<-'RUBY'
+inject_into_file 'app/controllers/application_controller.rb', before: "end\n" do <<-'RUBY'
   
   private
 
