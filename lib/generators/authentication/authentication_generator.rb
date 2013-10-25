@@ -21,7 +21,7 @@ class AuthenticationGenerator < Rails::Generators::Base
 
     remove_file "app/models/user.rb"
     copy_file "user.rb", "app/models/user.rb"
-    
+
     if Rails::VERSION::STRING.to_i < 4
 
 inject_into_file 'app/models/user.rb', after: "has_secure_password\n" do <<-'RUBY'
@@ -42,6 +42,9 @@ end
     remove_file "app/views/sessions/new.html.erb"
     copy_file "sessions/new.html.erb", "app/views/sessions/new.html.erb"
 
+    copy_file "create_user.rake", "lib/tasks/create_user.rake"
+
+
 
 inject_into_file 'app/controllers/application_controller.rb', before: "end\n" do <<-'RUBY'
   
@@ -57,6 +60,8 @@ inject_into_file 'app/controllers/application_controller.rb', before: "end\n" do
   end
 RUBY
 end
+
+  append_file 'db/seeds.rb', 'User.create(email: "admin@example.com", password: "test", password_confirmation: "test")'
 
   inject_into_file 'app/views/layouts/application.html.erb', after: "<body>\n" do <<-'RUBY'
 
