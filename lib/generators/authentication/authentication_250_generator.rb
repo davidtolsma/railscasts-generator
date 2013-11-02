@@ -37,6 +37,9 @@ end
     remove_file "app/controllers/sessions_controller.rb"
     copy_file "sessions_controller.rb", "app/controllers/sessions_controller.rb"
 
+    copy_file "users/_form.html.erb", "app/views/users/_form.html.erb"
+    copy_file "users/edit.html.erb", "app/views/users/edit.html.erb"
+    copy_file "users/index.html.erb", "app/views/users/index.html.erb"
     copy_file "users/new.html.erb", "app/views/users/new.html.erb"
 
     remove_file "app/views/sessions/new.html.erb"

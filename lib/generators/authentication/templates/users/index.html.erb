@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <%= user.email %> 
+   <% unless current_user == user %>
+    <%= link_to "Edit", edit_user_path(user) %> <%= link_to "Delete", user_path(user), :method => :delete %>
+   <% else %>
+    -- Currently logged in as
+   <% end %>
+   <br/>
+
+<% end %>
+
+<br/>
+<%= link_to "New User", new_user_path %>
