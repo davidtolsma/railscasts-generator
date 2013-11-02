@@ -1,0 +1,5 @@
+Description:
+    Setup environment for Heroku deploy and create a Heroku app and deploy it.
+
+Example:
+    Provide what name you want to call the heroku app, and it'll setup the env so it uses thin webserver, update Gemfile to use Ruby 2.0, verify Rails bin is included in the repository, Git add and commit then push to heroku. Finally db:migrate, add a couple of addons.

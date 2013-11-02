@@ -1,0 +1,8 @@
+Description:
+    remove the README.rdoc, and copy over the README.md from the templates folder
+
+Example:
+    rails generate readme
+
+    This will create:
+        Add the README.md
