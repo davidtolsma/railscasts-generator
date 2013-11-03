@@ -1,0 +1,6 @@
+Description:
+    Generate a page title that is easy to read and dynamic
+
+Example:
+    rails generate pretty_page_title
+    Add: <% title "Login" %> to the top of each page you want to control the name of
