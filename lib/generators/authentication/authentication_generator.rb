@@ -13,21 +13,11 @@ class AuthenticationGenerator < Rails::Generators::Base
 
     remove_file "app/controllers/users_controller.rb"
 
-    if Rails::VERSION::STRING.to_i >= 4
-      copy_file "users_controller_v4.rb", "app/controllers/users_controller.rb"
-    else
-      copy_file "users_controller_v3.rb", "app/controllers/users_controller.rb"
-    end
+    copy_file "users_controller.rb", "app/controllers/users_controller.rb"
 
     remove_file "app/models/user.rb"
     copy_file "user.rb", "app/models/user.rb"
 
-    if Rails::VERSION::STRING.to_i < 4
-
-inject_into_file 'app/models/user.rb', after: "has_secure_password\n" do <<-'RUBY'
-  attr_accessible :email, :password, :password_confirmation
-RUBY
-end
     end
 
     rake "db:migrate"

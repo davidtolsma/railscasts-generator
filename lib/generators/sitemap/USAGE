@@ -1,0 +1,6 @@
+Description:
+    Create a standard dynamic sitemap.xml file
+
+Example:
+    rails generate sitemap
+
