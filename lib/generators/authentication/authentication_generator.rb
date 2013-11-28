@@ -80,5 +80,9 @@ end
     route "get 'signup', to: 'users#new', as: 'signup'"
   end
 
+  def append_to_readme
+    append_file 'README.md', "\n* authentication setup\n"
+  end
+
 
 end

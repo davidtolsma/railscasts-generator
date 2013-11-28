@@ -20,7 +20,7 @@ class RobotsGenerator < Rails::Generators::Base
   end
 
   def append_to_readme
-    append_file 'README.md', '* update views/robot/robots.text.erb to use static root url'
+    append_file 'README.md', "\n* update views/robot/robots.text.erb to use static root url\n"
   end
 
 end

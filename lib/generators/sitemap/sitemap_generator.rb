@@ -14,7 +14,7 @@ class SitemapGenerator < Rails::Generators::Base
   end
 
   def append_to_readme
-    append_file 'README.md', '* Update sitemap_controller.rb and views/sitemap/show.xml.builder'
+    append_file 'README.md', "\n* Update sitemap_controller.rb and views/sitemap/show.xml.builder\n"
   end
 
 end

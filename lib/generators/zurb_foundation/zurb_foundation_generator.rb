@@ -3,9 +3,9 @@ class Zurb_foundationGenerator < Rails::Generators::Base
 
   def install_gem
     # use thin webserver
-    #append_file "Gemfile", "\n\ngem 'zurb-foundation'"
-    #run 'bundle install'
-    #run 'rails g foundation:install'
+    append_file "Gemfile", "\n\ngem 'zurb-foundation'"
+    run 'bundle install'
+    run 'rails g foundation:install'
 
     gsub_file 'app/views/layouts/application.html.erb', "<%= yield %>", '
 
@@ -38,5 +38,9 @@ class Zurb_foundationGenerator < Rails::Generators::Base
     </div>
     '
 
+  end
+
+  def append_to_readme
+    append_file 'README.md', "\n* zurb-foundation installed\n"
   end
 end
