@@ -2,7 +2,7 @@ class SitemapGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   def add_route
-    gsub_file 'config/routes.rb', "end", "  get '/sitemap.:format', to: 'sitemap#show'\nend"
+    gsub_file 'config/routes.rb', "end", "  get 'sitemap.:format', to: 'sitemap#show'\nend"
   end
 
   def add_controller

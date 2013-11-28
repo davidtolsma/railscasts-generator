@@ -1,0 +1,5 @@
+Description:
+    Create a standard robots.txt file
+
+Example:
+    rails generate robot
