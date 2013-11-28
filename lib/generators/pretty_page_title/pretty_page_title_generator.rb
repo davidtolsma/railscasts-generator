@@ -18,5 +18,9 @@ class Pretty_page_titleGenerator < Rails::Generators::NamedBase
 
   end
 
+  def append_to_readme
+    append_file 'README.md', '* Add <% title "Login" %> to each page you want'
+  end
+
 
 end
